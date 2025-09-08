@@ -10,8 +10,8 @@ jobs:
         env:
             AWS_REGION: 'us-east-1'
             AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-            ECR_REPO_NAME: 'fiap-soat11-lambda'
-            IMAGE_TAG: ${{ github.sha }} # ou use vars.IMAGETAG se desejar
+            ECR_REPO_NAME: 'fiap-lambda'
+            IMAGE_TAG: 'latest' # ou use vars.IMAGETAG se desejar
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
