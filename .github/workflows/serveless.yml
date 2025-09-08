@@ -10,7 +10,7 @@ jobs:
         env:
             AWS_REGION: 'us-east-1'
             AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-            ECR_REPO_NAME: 'minha-app-dotnet'
+            ECR_REPO_NAME: 'fiap-soat11-lambda'
             IMAGE_TAG: ${{ github.sha }} # ou use vars.IMAGETAG se desejar
         steps:
             - name: Checkout code
@@ -50,7 +50,7 @@ jobs:
             - name: Build and push Docker image to ECR
               uses: docker/build-push-action@v5
               with:
-                context: ./fiap-soat11
-                file: ./fiap-soat11/Dockerfile
+                context: ./
+                file: ./Dockerfile
                 push: true
                 tags: ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPO_NAME }}:${{ env.IMAGE_TAG }}
