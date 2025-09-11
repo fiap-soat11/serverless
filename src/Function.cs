@@ -64,8 +64,7 @@ namespace AutenticacaoApi
 
         private string GenerateJwt(int userId, string nome, string email)
         {
-            string jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET")
-                               ?? throw new Exception("JWT_SECRET not set");
+            string jwtSecret = "mySuperSecretKey123!@#2025fiapSoat11";
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
@@ -79,8 +78,8 @@ namespace AutenticacaoApi
             };
 
             var token = new JwtSecurityToken(
-                issuer: "meu-sistema",
-                audience: "meus-servicos",
+                issuer: "fiap-soat11",
+                audience: "fiap-soat11",
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(2),
                 signingCredentials: credentials
