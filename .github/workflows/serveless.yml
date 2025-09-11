@@ -46,6 +46,11 @@ jobs:
             - name: Log in to Amazon ECR
               uses: aws-actions/amazon-ecr-login@v2
 
+            - name: Create ECR repository if not exists
+              run: |
+                aws ecr describe-repositories --repository-names ${{ env.ECR_REPO_NAME }} || \
+                aws ecr create-repository --repository-name ${{ env.ECR_REPO_NAME }}
+
             # Build and push para o repositório ECR
             - name: Build and push Docker image to ECR
               uses: docker/build-push-action@v5

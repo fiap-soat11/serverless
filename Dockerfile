@@ -1,20 +1,15 @@
-# Etapa de build
-FROM public.ecr.aws/lambda/dotnet:8 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copia csproj e restaura pacotes
-COPY AutenticacaoApi.csproj .
+COPY . .
+
 RUN dotnet restore ./AutenticacaoApi.csproj
 
-# Copia todo o código e publica
-COPY . .
 RUN dotnet publish ./AutenticacaoApi.csproj -c Release -o /app
 
-# Etapa final (imagem lambda)
 FROM public.ecr.aws/lambda/dotnet:8
 WORKDIR /var/task
 
 COPY --from=build /app ./
 
-# Comando de entrada da Lambda (handler namespace::classe::método)
 CMD ["AutenticacaoApi::AutenticacaoApi.Function::FunctionHandler"]
