@@ -21,17 +21,17 @@ jobs:
               with:
                 dotnet-version: '8.0.x'
 
-            - name: Restore dependencies
-              run: dotnet restore ./AutenticacaoApi.csproj
+            #- name: Restore dependencies
+            #  run: dotnet restore ./AutenticacaoApi.csproj
 
-            - name: Build
-              run: dotnet build --configuration Release --no-restore
+            #- name: Build
+            #  run: dotnet build ./AutenticacaoApi.csproj --configuration Release --no-restore
 
-            - name: Publish
-              run: dotnet publish -c Release -o ./publish
+            #- name: Publish
+            #  run: dotnet publish ./AutenticacaoApi.csproj -c Release -o ./publish
 
-            - name: Set up Docker Buildx
-              uses: docker/setup-buildx-action@v3
+            #- name: Set up Docker Buildx
+            #  uses: docker/setup-buildx-action@v3
 
             # Configure AWS credentials (use secrets ou OIDC)
             - name: Configure AWS credentials
