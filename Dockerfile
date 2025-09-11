@@ -4,11 +4,11 @@ WORKDIR /src
 
 # Copia csproj e restaura pacotes
 COPY AutenticacaoApi.csproj .
-RUN dotnet restore
+RUN dotnet restore ./AutenticacaoApi.csproj
 
 # Copia todo o código e publica
 COPY . .
-RUN dotnet publish -c Release -o /app
+RUN dotnet publish ./AutenticacaoApi.csproj -c Release -o /app
 
 # Etapa final (imagem lambda)
 FROM public.ecr.aws/lambda/dotnet:8
