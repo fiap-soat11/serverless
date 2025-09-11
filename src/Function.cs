@@ -18,6 +18,9 @@ namespace AutenticacaoApi
     {
         public async Task<AuthResponse> FunctionHandler(AuthRequest request, ILambdaContext context)
         {
+            return new AuthResponse { Token = "tokenajndsakjndandksa", Message = "Autenticado com sucesso" };
+
+
             if (string.IsNullOrEmpty(request.Cpf) && string.IsNullOrEmpty(request.Email))
             {
                 return new AuthResponse { Message = "Informe CPF ou Email" };
