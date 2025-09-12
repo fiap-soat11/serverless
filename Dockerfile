@@ -1,12 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS sdk
-WORKDIR /app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-COPY ./ ./
-RUN dotnet publish -c Release -o out
+COPY . .
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
-WORKDIR /app
-COPY --from=sdk /app/out .
+RUN dotnet restore ./AutenticacaoApi.csproj
 
-EXPOSE 8080
-ENTRYPOINT ["dotnet", "MinimalApi.dll"]
+RUN dotnet publish ./AutenticacaoApi.csproj -c Release -o /app
+
+FROM public.ecr.aws/lambda/dotnet:8
+WORKDIR /var/task
+
+COPY --from=build /app ./
+
+CMD ["AutenticacaoApi::AutenticacaoApi.Function::FunctionHandler"]
