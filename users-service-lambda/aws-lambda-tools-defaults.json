@@ -1,0 +1,19 @@
+{
+  "profile": "default",
+  "region": "ap-southeast-2",
+  "configuration": "Release",
+  "framework": "net8.0",
+  "function-runtime": "dotnet8",
+  "function-memory-size": 256,
+  "function-timeout": 30,
+  "function-handler": "users-service-lambda::users_service_lambda.Function::FunctionHandler",
+  "function-name": "user-service",
+  "package-type": "Zip",
+  "function-role": "arn:aws:iam::189107071895:role/lambda_exec_test-user-service",
+  "function-architecture": "x86_64",
+  "function-subnets": "",
+  "function-security-groups": "",
+  "tracing-mode": "PassThrough",
+  "environment-variables": "",
+  "function-description": "Lambda para CRUD de usuários usando RDS MySQL"
+}
