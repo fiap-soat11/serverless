@@ -3,9 +3,9 @@ WORKDIR /src
 
 COPY . .
 
-RUN dotnet restore ./users-service-lambda/users-service-lambda.csproj
+RUN dotnet restore ./users-service-lambda.csproj
 
-RUN dotnet publish ./users-service-lambda/users-service-lambda.csproj -c Release -o /app
+RUN dotnet publish ./users-service-lambda.csproj -c Release -o /app
 
 FROM public.ecr.aws/lambda/dotnet:8
 WORKDIR /var/task

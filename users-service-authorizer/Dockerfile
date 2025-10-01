@@ -3,9 +3,9 @@ WORKDIR /src
 
 COPY . .
 
-RUN dotnet restore ./users-service-authorizer./users-service-authorizer.csproj
+RUN dotnet restore ./users-service-authorizer.csproj
 
-RUN dotnet publish ./users-service-authorizer/users-service-authorizer.csproj -c Release -o /app
+RUN dotnet publish ./users-service-authorizer.csproj -c Release -o /app
 
 FROM public.ecr.aws/lambda/dotnet:8
 WORKDIR /var/task
