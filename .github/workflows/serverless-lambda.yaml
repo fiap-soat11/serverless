@@ -1,4 +1,4 @@
-name: Auth - Build e Publicacao AWS ECR 
+name: Lambda - Build e Publicacao AWS ECR 
 on:
     push:
         branches:
