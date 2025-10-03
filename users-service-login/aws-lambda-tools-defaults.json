@@ -16,7 +16,7 @@
     "function-handler"      : "users-service-login::users_service_login.Function::FunctionHandler",
     "framework"             : "net8.0",
     "function-name"         : "users-serive-login",
-    "package-type"          : "Zip",
+    "package-type"          : "Image",
     "function-role"         : "arn:aws:iam::768227742769:role/lambda_exec_users-service-authorizer",
     "function-subnets"      : "",
     "function-security-groups" : "",
