@@ -12,4 +12,4 @@ WORKDIR /var/task
 
 COPY --from=build /app ./
 
-CMD ["users_service_authorizer::users-service-authorizer.Function::FunctionHandler"]
+CMD ["users-service-authorizer::users_service_authorizer.Function::FunctionHandler"]
