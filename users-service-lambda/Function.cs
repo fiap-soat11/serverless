@@ -15,7 +15,8 @@ public class Function
     public Function()
     {
         // pega do environment
-        _connectionString = "Server=fiap.c238ww24ssn2.us-east-1.rds.amazonaws.com;Database=fiap;User ID=user_fiap;Password=pass_fiap;" //Environment.GetEnvironmentVariable("RDS_CONNECTION_STRING")
+        _connectionString = "Server=fiap-mysql-mysql.cbs2akm6e206.us-east-1.rds.amazonaws.com;Database=fiap;User ID=user_fiap;Password=pass_fiap;"
+            //_connectionString = "Server=fiap.c238ww24ssn2.us-east-1.rds.amazonaws.com;Database=fiap;User ID=user_fiap;Password=pass_fiap;" //Environment.GetEnvironmentVariable("RDS_CONNECTION_STRING")
             ?? throw new InvalidOperationException("RDS_CONNECTION_STRING not configured");
     }
 
