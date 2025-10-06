@@ -12,5 +12,5 @@ WORKDIR /var/task
 
 COPY --from=build /app ./
 
-CMD ["AutenticacaoApi::users-service-login.Function::FunctionHandler"]
+CMD ["users_service_login::users-service-login.Function::FunctionHandler"]
 
