@@ -12,4 +12,4 @@ WORKDIR /var/task
 
 COPY --from=build /app ./
 
-CMD ["users_service_lambda::users-service-lambda.Function::FunctionHandler"]
+CMD ["users-service-lambda::users_service_lambda.Function::FunctionHandler"]
